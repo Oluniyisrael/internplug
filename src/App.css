@@ -1,0 +1,81 @@
+@keyframes flowDown {
+    0% {
+        stroke-dashoffset: 0;
+    }
+
+    99.9% {
+        stroke-dashoffset: 160;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.animated-path {
+    animation: flowDown 3s cubic-bezier(0.15, 0.3, 0.9, 0.1) infinite;
+}
+
+.svg-container {
+    width: 100%;
+    height: 100%;
+}
+
+/* Custom scrollbar for horizontal scroll */
+.custom-scrollbar::-webkit-scrollbar {
+    height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    margin: 0 20px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(to right, #0080ff, #0066cc);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 128, 255, 0.3);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to right, #0066cc, #0080ff);
+    box-shadow: 0 0 15px rgba(0, 128, 255, 0.5);
+}
+
+.custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #0080ff rgba(255, 255, 255, 0.05);
+}
+
+/* Firefox scrollbar */
+html, body {
+    scrollbar-width: thin;
+    scrollbar-color: #0080ff rgba(255, 255, 255, 0.05);
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #0080ff, #0066cc);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 128, 255, 0.3);
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #0066cc, #0080ff);
+    box-shadow: 0 0 15px rgba(0, 128, 255, 0.5);
+}
+
