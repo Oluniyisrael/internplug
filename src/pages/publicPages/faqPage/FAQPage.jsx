@@ -1,21 +1,13 @@
-import Footer from "../../../components/footer/Footer"
-import NavBar from "../../../components/navbar/Navbar"
-import FAQHero from "./assets/FAQHero"
-import FAQCategories from "./assets/FAQCategories"
-import FAQContact from "./assets/FAQContact"
-import { useState } from "react"
+import FAQHero from './assets/FAQHero'
+import FAQCategories from './assets/FAQCategories'
+import FAQContact from './assets/FAQContact'
 
-export default function FAQPage({ }) {
-    const [searchTerm, setSearchTerm] = useState('')
-    const [openIndex, setOpenIndex] = useState(null)
-
+export default function FAQPage() {
     return (
-        <div className="w-full overflow-x-hidden bg-[#0a0712] min-h-screen">
-            {/* <NavBar /> */}
-            <FAQHero {...{ searchTerm, setSearchTerm, openIndex, setOpenIndex }} />
-            <FAQCategories {...{ searchTerm, setSearchTerm, openIndex, setOpenIndex }} />
+        <div className="w-full bg-[#0b1f1c]">
+            <FAQHero />
+            <FAQCategories />
             <FAQContact />
-            {/* <Footer /> */}
         </div>
     )
 }

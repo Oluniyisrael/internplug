@@ -1,95 +1,100 @@
 import { useState } from 'react'
-import { Plus, Minus, Wrench, DollarSign, Shield, Clock, Users, Smartphone, HelpCircle } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 
-export default function FAQCategories({ searchTerm, setOpenIndex, openIndex }) {
-    const [activeCategory, setActiveCategory] = useState('all')
+const categories = [
+    {
+        title: "Getting started",
+        faqs: [
+            { q: "How do I create an account?", a: "Click 'Get started' on the homepage, choose whether you're a student or employer, and follow the signup steps. Student profiles ask for your school, course, level, skills, and interests. You can upload your CV right away or build one in the platform." },
+            { q: "Is InternPlug free for students?", a: "Yes, completely. Creating a profile, receiving matches, saving listings, and applying are all free. There are no hidden charges. We may introduce optional premium tools in the future, but the core platform will always be free for students." },
+            { q: "What universities and polytechnics are supported?", a: "All of them. InternPlug is open to students from any accredited Nigerian university, polytechnic, or college of education — federal, state, or private. If your institution isn't pre-listed in our dropdown, you can type it in manually." },
+            { q: "Can I use InternPlug if I've already graduated?", a: "Yes. We support final-year students and fresh graduates up to 12 months post-NYSC. Select 'Graduate' as your level when setting up your profile and you'll see roles that match your status." },
+        ],
+    },
+    {
+        title: "Matching & applications",
+        faqs: [
+            { q: "How does the matching score work?", a: "When you complete your profile, InternPlug compares your course, skills, interests, and location preferences against every active listing. Each listing gets a match score between 0–100%. Listings are ranked by how closely the role requirements align with your profile. The score isn't just keyword matching — it weighs course relevance, skill overlap, and location fit." },
+            { q: "Will I still see listings that aren't a strong match?", a: "Yes. You can browse all listings at any time and filter them by field, location, duration, or company type. Matched listings are ranked higher by default, but you're never restricted to them." },
+            { q: "How do I apply for an internship?", a: "Open any listing, review the role, and click 'Apply.' Your profile and CV are pre-attached. You can add a short cover note if the listing requests one. Submitted applications go to the employer immediately and appear in your tracker." },
+            { q: "Can I apply for multiple internships at once?", a: "Yes, there's no limit. We recommend applying to roles where your match score is 70% or above, but the choice is yours." },
+        ],
+    },
+    {
+        title: "Application tracker",
+        faqs: [
+            { q: "What stages does the tracker show?", a: "Applied → Shortlisted → Interview scheduled → Accepted / Rejected. You'll see your status update in real time as employers move your application through their pipeline. You'll also receive an in-app notification at each stage change." },
+            { q: "What if a company never updates my status?", a: "If an application hasn't had a status update in 21 days, it automatically moves to 'Closed — no response.' Employers who consistently ghost applicants are flagged in our system and reviewed." },
+            { q: "Can I withdraw an application after submitting?", a: "Yes. Open the application in your tracker and select 'Withdraw application.' The employer will see that you've withdrawn. You can't re-apply to the same role after withdrawing." },
+        ],
+    },
+    {
+        title: "CV & profile",
+        faqs: [
+            { q: "What if I don't have a CV yet?", a: "Use the InternPlug CV builder. It walks you through every section a recruiter expects — education, skills, projects, experience, and references — and exports a clean PDF you can download or attach directly to applications." },
+            { q: "How do I improve my match scores?", a: "Complete every section of your profile. Listing your skills specifically (e.g. 'Python, Excel, Tableau' rather than just 'data') and keeping your interests updated has the biggest impact on match quality." },
+            { q: "Can employers see my full profile before I apply?", a: "No. Employers only see your profile after you apply to their specific listing. Browsing the platform is private." },
+        ],
+    },
+    {
+        title: "For employers",
+        faqs: [
+            { q: "How do I post a listing on InternPlug?", a: "Register as an employer, complete your company verification, then click 'Post a listing.' Provide a role title, department, location, duration, skills required, and a description. Listings go live within 24 hours after review." },
+            { q: "What is the company verification process?", a: "We verify your CAC registration number, confirm your business address, and review your company profile before approving listings. This protects students from fake opportunities." },
+            { q: "How much does it cost to post?", a: "Standard listings are free. Premium placement — which pins your listing to the top of relevant student match feeds — is available for a monthly fee. Contact us for pricing." },
+            { q: "How do I shortlist and communicate with candidates?", a: "Your employer dashboard shows every applicant for each listing with their match score and profile. Move them through stages with one click. Direct messaging with shortlisted candidates is available inside the platform." },
+        ],
+    },
+]
 
-    const categories = [
-        { id: 'all', label: 'All Questions', icon: HelpCircle },
-        { id: 'general', label: 'General', icon: Users },
-        { id: 'booking', label: 'Booking & Process', icon: Clock },
-        { id: 'pricing', label: 'Pricing & Payment', icon: DollarSign },
-        { id: 'repairs', label: 'Repairs & Devices', icon: Wrench },
-        { id: 'safety', label: 'Safety & Trust', icon: Shield },
-        { id: 'technical', label: 'Technical', icon: Smartphone }
-    ]
+export default function FAQCategories() {
+    const [activeCategory, setActiveCategory] = useState(0)
+    const [openFaq, setOpenFaq] = useState(null)
 
-    const faqs = [
-        { category: 'general', question: "What is NIWTS?", answer: "NIWTS is a platform that connects people who need device repairs with verified hardware engineers in their area. We make it easy to find trustworthy technicians for laptop, phone, PC, and other electronic device repairs." },
-        { category: 'general', question: "How do I find a hardware engineer near me?", answer: "Simply enter your location in our search tool, and we'll show you all verified engineers in your area. You can filter by specialty, ratings, availability, and pricing." },
-        { category: 'booking', question: "How does the booking process work?", answer: "Browse engineers, request a quote, communicate directly, agree on price and timeline, and schedule your repair." },
-        { category: 'booking', question: "Can I cancel or reschedule my appointment?", answer: "Yes, you can cancel or reschedule through your dashboard. Most engineers allow free cancellation up to 24 hours before appointment." },
-        { category: 'booking', question: "How quickly can my device be repaired?", answer: "Simple repairs may take 1-2 hours. Complex issues can take 2-3 days depending on parts availability." },
-        { category: 'pricing', question: "How much does a typical repair cost?", answer: "Costs vary depending on device and issue. Engineers provide free diagnostics and quotes upfront." },
-        { category: 'pricing', question: "Are there any hidden fees?", answer: "No hidden fees. Any additional cost must be approved before proceeding." },
-        { category: 'pricing', question: "What payment methods do you accept?", answer: "We accept major cards and digital payments. Payment is processed securely through the platform." },
-        { category: 'repairs', question: "What types of devices can be repaired?", answer: "Laptops, desktops, smartphones, tablets, gaming consoles and more." },
-        { category: 'repairs', question: "Do repairs come with a warranty?", answer: "Yes. Most repairs come with 30-90 days warranty depending on the service." },
-        { category: 'repairs', question: "What if my device can't be repaired?", answer: "You only pay diagnostic fees if applicable. Engineers may suggest alternatives." },
-        { category: 'repairs', question: "Will my data be safe during repair?", answer: "Engineers follow confidentiality protocols. Always backup your data first." },
-        { category: 'safety', question: "Are the engineers certified?", answer: "Yes. Engineers go through strict verification including certifications and identity checks." },
-        { category: 'safety', question: "How do you verify engineers?", answer: "Background checks, certification verification, portfolio review, and identity verification." },
-        { category: 'safety', question: "What if I'm not satisfied?", answer: "Contact support within 48 hours and we’ll resolve the issue or arrange refund." },
-        { category: 'safety', question: "Is it safe to meet engineers?", answer: "Yes. All engineers are vetted and verified. You can choose preferred meeting location." },
-        { category: 'technical', question: "Can engineers repair water damage?", answer: "Yes, but success depends on how quickly action is taken." },
-        { category: 'technical', question: "Do you offer software troubleshooting?", answer: "Yes. Virus removal, OS installation, data recovery, and more." },
-        { category: 'technical', question: "Can I upgrade my device?", answer: "Yes. RAM, SSD upgrades, graphics cards, cooling systems and more." },
-        { category: 'general', question: "How do I contact NIWTS support?", answer: "Reach us via live chat, email or phone. We respond within 2 hours during business hours." }
-    ]
-
-    const filteredFAQs = faqs.filter(faq => {
-        const matchesCategory = activeCategory === 'all' || faq.category === activeCategory
-        const matchesSearch = faq.question.toLowerCase().includes(searchTerm.toLowerCase()) || faq.answer.toLowerCase().includes(searchTerm.toLowerCase())
-        return matchesCategory && matchesSearch
-    })
-
-    const toggleFAQ = (index) => {
-        setOpenIndex(openIndex === index ? null : index)
+    const handleCategoryChange = (index) => {
+        setActiveCategory(index)
+        setOpenFaq(null)
     }
 
     return (
-        <div className="relative bg-gradient-to-b from-[transparent]/20 via-[#0a0712] to-[#0a0712] py-20  overflow-hidden">
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-                {/* Categories */}
-                <div className="mb-12 overflow-x-auto pb-4 custom-scrollbar" data-aos="fade-up">
-                    <div className="flex gap-3 min-w-max">
-                        {categories.map((category) => {
-                            const Icon = category.icon
-                            return (
-                                <button key={category.id} onClick={() => { setActiveCategory(category.id); setOpenIndex(null) }} className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all whitespace-nowrap ${activeCategory === category.id ? 'bg-gradient-to-r from-[#0080ff] to-[#0066cc] text-white shadow-lg shadow-[#0080ff]/30' : 'bg-white/5 text-gray-400 border border-white/10 hover:bg-white/10 hover:text-white'}`}>
-                                    <Icon className="w-5 h-5" />
-                                    {category.label}
-                                </button>
-                            )
-                        })}
-                    </div>
+        <section className="py-8 px-4 md:px-12 lg:px-20 pb-24">
+            <div className="max-w-5xl mx-auto">
+                {/* Category tabs */}
+                <div className="flex flex-wrap gap-2 mb-10" data-aos="fade-up">
+                    {categories.map((cat, i) => (
+                        <button
+                            key={i}
+                            onClick={() => handleCategoryChange(i)}
+                            className={`px-4 py-2 rounded-full text-sm font-medium transition-all border ${activeCategory === i ? 'bg-[#35d399] text-[#0b1f1c] border-[#35d399]' : 'border-[#1f5346] text-[#86ab9f] hover:text-[#eef3ef] hover:border-[#2a6b55]'}`}
+                        >
+                            {cat.title}
+                        </button>
+                    ))}
                 </div>
 
-                {/* FAQ List */}
-                <div className="grid grid-cols-1 gap-6">
-                    {filteredFAQs.length > 0 ? (
-                        filteredFAQs.map((faq, index) => (
-                            <div key={index} data-aos="fade-up" data-aos-delay={index * 20} className="bg-gradient-to-br from-[#1a1a2e]/80 to-[#16213e]/50 border border-white/10 rounded-2xl overflow-hidden hover:border-[#0080ff]/40 transition-all backdrop-blur-sm">
-                                <button onClick={() => toggleFAQ(index)} className="w-full p-6 flex items-start justify-between gap-4 text-left group">
-                                    <div className="flex-1">
-                                        <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-[#0080ff] transition-colors">{faq.question}</h3>
-                                        <div className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-96 opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
-                                            <p className="text-gray-400 leading-relaxed">{faq.answer}</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#0080ff]/10 border border-[#0080ff]/30 flex items-center justify-center group-hover:bg-[#0080ff]/20 transition-all">
-                                        {openIndex === index ? <Minus className="w-5 h-5 text-[#0080ff]" /> : <Plus className="w-5 h-5 text-[#0080ff]" />}
-                                    </div>
-                                </button>
-                            </div>
-                        ))
-                    ) : (
-                        <div className="text-center py-12 text-gray-400">No FAQs found matching your search.</div>
-                    )}
+                {/* FAQ list */}
+                <div className="space-y-3" data-aos="fade-up" data-aos-delay="100">
+                    {categories[activeCategory].faqs.map((faq, i) => (
+                        <div
+                            key={i}
+                            className={`bg-[#143a33] border rounded-2xl overflow-hidden transition-all duration-200 ${openFaq === i ? 'border-[#35d399]/40' : 'border-[#1f5346] hover:border-[#2a6b55]'}`}
+                        >
+                            <button
+                                onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                                className="w-full flex items-center justify-between p-6 text-left"
+                            >
+                                <span className="text-[#eef3ef] font-semibold text-sm pr-6" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{faq.q}</span>
+                                <ChevronDown className={`text-[#86ab9f] flex-shrink-0 w-5 h-5 transition-transform duration-200 ${openFaq === i ? 'rotate-180 text-[#35d399]' : ''}`} />
+                            </button>
+                            {openFaq === i && (
+                                <div className="px-6 pb-6">
+                                    <p className="text-[#86ab9f] text-sm leading-relaxed">{faq.a}</p>
+                                </div>
+                            )}
+                        </div>
+                    ))}
                 </div>
-
             </div>
-        </div>
+        </section>
     )
 }

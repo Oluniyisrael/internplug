@@ -1,41 +1,40 @@
-export default function AboutStory({ }) {
+export default function AboutStory() {
     return (
-        <div className="relative bg-gradient-to-b from-[transparent]  via-[#0a0712] to-[#0a0712] py-20 lg:py-32 overflow-hidden">
-            {/* <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#85dbf2]/80 via-[#243c91]/40 to-transparent pointer-events-none" /> */}
-
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    {/* Left side - Image */}
-                    <div data-aos="fade-right" className="relative">
-                        <div className="absolute -inset-4 bg-gradient-to-r from-[#0080ff]/20 to-[#243c91]/20 rounded-3xl blur-2xl" />
-                        <div className="relative overflow-hidden rounded-2xl border border-[#0080ff]/20 shadow-2xl">
-                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop" alt="Team collaboration" className="w-full h-[500px] object-cover" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0712]/80 via-transparent to-transparent" />
+        <section className="py-16 px-4 md:px-12 lg:px-20 bg-[#071714]">
+            <div className="max-w-7xl mx-auto">
+                <div className="grid lg:grid-cols-2 gap-16 items-center">
+                    <div data-aos="fade-right">
+                        <h2 className="text-3xl md:text-4xl font-bold text-[#eef3ef] mb-6" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                            Why InternPlug exists
+                        </h2>
+                        <div className="space-y-4 text-[#86ab9f] leading-relaxed">
+                            <p>
+                                The internship process in Nigeria is broken in a specific way. Students mass-apply to listings they found on WhatsApp groups or Instagram DMs, with no idea if they're even remotely qualified. Companies get flooded with irrelevant CVs and ghost most applicants. Both sides lose.
+                            </p>
+                            <p>
+                                The root cause is a mismatch problem. Students don't know which roles fit their profile, and companies don't have a structured way to find students who fit their needs. InternPlug fixes both.
+                            </p>
+                            <p>
+                                We built an AI-powered matching layer that reads a student's course, skills, and interests, then ranks available internships by relevance. Students stop guessing. Companies get screened applicants. And we make the whole process — from application to placement — visible to both parties.
+                            </p>
                         </div>
                     </div>
 
-                    {/* Right side - Content */}
-                    <div data-aos="fade-left" className="space-y-6">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#0080ff]/30 bg-[#0080ff]/10 backdrop-blur-sm">
-                            <span className="text-sm font-medium text-[#0080ff]">Our Story</span>
-                        </div>
-                        <h2 className="text-4xl sm:text-5xl font-bold text-white">
-                            Built from <span className="bg-gradient-to-r from-[#0080ff] to-[#85dbf2] bg-clip-text text-transparent">Frustration</span>
-                        </h2>
-                        <div className="space-y-4 text-gray-300 text-lg leading-relaxed">
-                            <p>
-                                NIWTS was born from a simple yet frustrating experience. Our founder's laptop broke down right before an important presentation, and finding a trustworthy repair technician became an odyssey of unreliable recommendations and inflated prices.
-                            </p>
-                            <p>
-                                We realized that millions of people face this same challenge every day. There had to be a better way to connect people who need repairs with skilled engineers who could help.
-                            </p>
-                            <p>
-                                That's when NIWTS was created - a platform that verifies engineers, ensures transparent pricing, and makes device repairs as easy as ordering a ride or booking a hotel.
-                            </p>
-                        </div>
+                    <div data-aos="fade-left" className="grid grid-cols-2 gap-4">
+                        {[
+                            { number: "2,400+", label: "Students placed", color: "text-[#35d399]" },
+                            { number: "120+", label: "Partner companies", color: "text-[#f5c400]" },
+                            { number: "500+", label: "Active listings", color: "text-[#35d399]" },
+                            { number: "36", label: "States covered", color: "text-[#f5c400]" },
+                        ].map((stat, i) => (
+                            <div key={i} className="bg-[#143a33] border border-[#1f5346] rounded-2xl p-6">
+                                <p className={`text-4xl font-black mb-1 ${stat.color}`} style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{stat.number}</p>
+                                <p className="text-[#86ab9f] text-sm">{stat.label}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }

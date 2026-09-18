@@ -1,41 +1,16 @@
-import { HelpCircle } from 'lucide-react'
-
-export default function FAQHero({ searchTerm, setSearchTerm, setOpenIndex }) {
+export default function FAQHero() {
     return (
-        <div className="relative min-h-[60vh] bg-[radial-gradient(150%_163%_at_50%_90.6%,#0a0712_25.6757%,#100b1d_38.2883%,#21104b_44.1441%,#243c91_50.7848%,#85dbf2_65.8643%)] overflow-hidden">
-            {/* Animated gradient overlays */}
-            <div className="absolute inset-0">
-                <div className="absolute top-1/4 -right-48 w-96 h-96 bg-[#0080ff] opacity-20 rounded-full blur-[120px] animate-pulse" />
-                <div className="absolute bottom-1/3 -left-48 w-[32rem] h-[32rem] bg-[#243c91] opacity-15 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
+        <section className="relative pt-32 pb-16 px-4 md:px-12 lg:px-20">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#35d399] opacity-[0.04] rounded-full blur-[120px] pointer-events-none" />
+            <div className="max-w-3xl mx-auto text-center relative z-10">
+                <p data-aos="fade-up" className="text-[#35d399] font-semibold text-sm mb-4">Help centre</p>
+                <h1 data-aos="fade-up" data-aos-delay="100" className="text-5xl md:text-6xl font-bold text-[#eef3ef] mb-5" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                    Frequently asked questions
+                </h1>
+                <p data-aos="fade-up" data-aos-delay="200" className="text-[#86ab9f] text-lg">
+                    Everything you need to know about InternPlug. Can't find what you're looking for? <a href="/contact" className="text-[#35d399] hover:underline">Message us.</a>
+                </p>
             </div>
-
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-                <div className="text-center" data-aos="fade-up">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#0080ff]/30 bg-[#0080ff]/10 backdrop-blur-sm mb-6">
-                        <HelpCircle className="w-4 h-4 text-[#0080ff]" />
-                        <span className="text-sm font-medium text-[#0080ff]">Help Center</span>
-                    </div>
-                    <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-                        Frequently Asked <span className="bg-gradient-to-r from-[#0080ff] to-[#85dbf2] bg-clip-text text-transparent">Questions</span>
-                    </h1>
-                    <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                        Find answers to common questions about NIWTS, our engineers, pricing, and the repair process
-                    </p>
-                </div>
-
-                {/* Search bar */}
-                <div className="max-w-2xl mx-auto mt-12" data-aos="fade-up" data-aos-delay="200">
-                    <div className="relative">
-                        <input type="text" placeholder="Search for answers..." className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-full text-white placeholder-gray-400 focus:outline-none focus:border-[#0080ff]/50 focus:bg-white/15 transition-all backdrop-blur-sm" value={searchTerm} onChange={(e) => { setSearchTerm(e.target.value); setOpenIndex(null) }} />
-                        <button className="absolute right-2 top-1/2 -translate-y-1/2 px-6 py-2 bg-gradient-to-r from-[#0080ff] to-[#0066cc] text-white rounded-full font-semibold hover:scale-105 transition-transform">
-                            Search
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            {/* Grid overlay */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
-        </div>
+        </section>
     )
 }

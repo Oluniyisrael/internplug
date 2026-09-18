@@ -1,93 +1,79 @@
 import { useState } from 'react'
-import { Plus, Minus } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
-export default function LandingFAQ({ }) {
-    const [openIndex, setOpenIndex] = useState(null)
+const faqs = [
+    {
+        question: "Is InternPlug free for students?",
+        answer: "Yes — InternPlug is completely free for students. Creating a profile, getting matched, saving listings, and applying all cost nothing. Premium tools like advanced CV review and mock interview sessions will be offered later, but the core platform stays free."
+    },
+    {
+        question: "How does the matching system work?",
+        answer: "When you complete your profile — including your course, level, skills, and interests — InternPlug evaluates your profile against every active listing and generates a fit score. The score reflects how closely the role's requirements align with what you bring. You still see all listings, but your matches are ranked by relevance."
+    },
+    {
+        question: "Are the internships verified?",
+        answer: "Yes. Every company that posts on InternPlug goes through a verification process before their listings go live. We check that the company is registered, the role is genuine, and students who complete the internship receive a verifiable certificate of experience."
+    },
+    {
+        question: "Can I apply for internships outside my state?",
+        answer: "Absolutely. Many listings on InternPlug are remote or open to applicants from across Nigeria. You can filter by location — Lagos, Abuja, Port Harcourt, remote — or leave it open to see everything."
+    },
+    {
+        question: "I'm a final-year student or recent graduate. Is InternPlug for me?",
+        answer: "Yes. InternPlug serves students from 200 level through to fresh graduates. Some employers specifically look for final-year students or people who recently completed NYSC. You'll see roles filtered to your level when you set up your profile."
+    },
+    {
+        question: "What if I don't have a CV yet?",
+        answer: "You can still apply. InternPlug has a built-in CV builder that walks you through the sections a recruiter expects to see — education, skills, projects, and experience. Complete it on the platform and it's ready to attach to any application."
+    },
+];
 
-    const faqs = [
-        {
-            question: "How do I find a hardware engineer near me?",
-            answer: "Simply enter your location in our search tool, and we'll show you all verified engineers in your area. You can filter by specialty (laptop, phone, PC repair), ratings, and availability to find the perfect match for your needs."
-        },
-        {
-            question: "Are the engineers on NIWTS certified?",
-            answer: "Yes! Every engineer on our platform goes through a thorough verification process. We check certifications, work history, and require proof of expertise. Additionally, all engineers are rated by customers, so you can see real reviews before booking."
-        },
-        {
-            question: "What types of devices can be repaired through NIWTS?",
-            answer: "Our network of engineers can repair laptops, desktop computers, smartphones, tablets, gaming consoles, and other electronic devices. Common repairs include screen replacements, battery changes, water damage, motherboard issues, and software problems."
-        },
-        {
-            question: "How much does a typical repair cost?",
-            answer: "Repair costs vary depending on the device and issue. Most engineers provide free diagnostics and quotes before starting work. You'll see the cost upfront with no hidden fees. On average, our customers save 30-50% compared to manufacturer repair services."
-        },
-        {
-            question: "Is there a warranty on repairs?",
-            answer: "Yes! Most repairs come with a warranty period (typically 30-90 days) depending on the type of repair and parts used. The specific warranty terms are provided by each engineer and will be clearly stated before you confirm the booking."
-        },
-        {
-            question: "How quickly can my device be repaired?",
-            answer: "Repair time depends on the issue and parts availability. Simple repairs like screen replacements often take 1-2 hours, while more complex issues might take 2-3 days. You can discuss timelines directly with your chosen engineer before committing."
-        }
-    ]
-
-    const toggleFAQ = (index) => {
-        setOpenIndex(openIndex === index ? null : index)
-    }
+export default function LandingFAQ() {
+    const [open, setOpen] = useState(null);
 
     return (
-        <div className="relative bg-gradient-to-b from-[#0a0712] to-[#0a0712] py-20 lg:py-32 overflow-hidden">
-            {/* Background effects */}
-            <div className="absolute inset-0">
-                <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#243c91] opacity-5 rounded-full blur-[120px]" />
-            </div>
-
-            <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Section header */}
-                <div className="text-center mb-16" data-aos="fade-up">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#0080ff]/30 bg-[#0080ff]/10 backdrop-blur-sm mb-6">
-                        <span className="text-sm font-medium text-[#0080ff] uppercase tracking-wide">Empower Innovation</span>
-                    </div>
-                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-                        No Question Is Too Small - Ask Away, We're Listening!
+        <section className="relative py-24 px-4 md:px-12 lg:px-20 bg-[#071714]">
+            <div className="max-w-3xl mx-auto">
+                <div className="text-center mb-14">
+                    <p data-aos="fade-up" className="text-[#35d399] font-semibold text-sm mb-3">Common questions</p>
+                    <h2 data-aos="fade-up" data-aos-delay="100" className="text-4xl md:text-5xl font-bold text-[#eef3ef]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                        Quick answers
                     </h2>
-                    <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-                        Have a question or need clarification? Don't hesitate to reach out. Our team is here to help and we're ready to provide all the answers you need.
-                    </p>
                 </div>
 
-                {/* FAQ List */}
-                <div className="space-y-4">
+                <div className="space-y-3" data-aos="fade-up" data-aos-delay="150">
                     {faqs.map((faq, index) => (
-                        <div key={index} data-aos="fade-up" data-aos-delay={index * 50} className="border-b border-white/10">
-                            <button onClick={() => toggleFAQ(index)} className="w-full py-6 flex items-start justify-between gap-4 text-left group hover:opacity-80 transition-opacity">
-                                <div className="flex items-start gap-4 flex-1">
-                                    <span className="text-gray-500 font-mono text-sm mt-1 flex-shrink-0">
-                                        {String(index + 1).padStart(2, '0')}
-                                    </span>
-                                    <div className="flex-1">
-                                        <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">
-                                            {faq.question}
-                                        </h3>
-                                        <div className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-96 opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
-                                            <p className="text-gray-400 leading-relaxed">
-                                                {faq.answer}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
-                                    {openIndex === index ? (
-                                        <Minus className="w-6 h-6 text-white" />
-                                    ) : (
-                                        <Plus className="w-6 h-6 text-white" />
-                                    )}
-                                </div>
+                        <div
+                            key={index}
+                            className={`bg-[#143a33] border rounded-2xl overflow-hidden transition-all duration-200 ${open === index ? 'border-[#35d399]/40' : 'border-[#1f5346] hover:border-[#2a6b55]'}`}
+                        >
+                            <button
+                                onClick={() => setOpen(open === index ? null : index)}
+                                className="w-full flex items-center justify-between p-6 text-left"
+                            >
+                                <span className="text-[#eef3ef] font-semibold text-sm pr-6" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                                    {faq.question}
+                                </span>
+                                <ChevronDown
+                                    className={`text-[#86ab9f] flex-shrink-0 w-5 h-5 transition-transform duration-200 ${open === index ? 'rotate-180 text-[#35d399]' : ''}`}
+                                />
                             </button>
+                            {open === index && (
+                                <div className="px-6 pb-6">
+                                    <p className="text-[#86ab9f] text-sm leading-relaxed">{faq.answer}</p>
+                                </div>
+                            )}
                         </div>
                     ))}
                 </div>
+
+                <div className="text-center mt-10">
+                    <p className="text-[#86ab9f] text-sm">
+                        More questions? <Link to="/faq" className="text-[#35d399] hover:underline font-medium">See the full FAQ</Link> or <Link to="/contact" className="text-[#35d399] hover:underline font-medium">contact us</Link>.
+                    </p>
+                </div>
             </div>
-        </div>
-    )
+        </section>
+    );
 }

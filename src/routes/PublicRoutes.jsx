@@ -1,31 +1,24 @@
 import { Route } from "react-router-dom";
 import LandingPage from "../pages/publicPages/landingPage/LandingPage.jsx";
-import AboutPage from "../pages/publicPages/aboutPage/AboutPage";
+import AboutPage from "../pages/publicPages/aboutPage/AboutPage.jsx";
 import FAQPage from "../pages/publicPages/faqPage/FAQPage.jsx";
-import Blogs from "../pages/publicPages/blogs/Blogs.jsx";
-import BlogPage from "../pages/publicPages/blogPage/BlogPage.jsx";
 import ContactPage from "../pages/publicPages/contactPage/ContactPage.jsx";
-import SignUpPage from "../pages/publicPages/signUpPage/SignUpPage.jsx";
 import LoginPage from "../pages/publicPages/loginPage/LoginPage.jsx";
-import ResetPasswordPage from "../pages/publicPages/resetPasswordPage/ResetPasswordPage.jsx";
+import SignUpPage from "../pages/publicPages/signUpPage/SignUpPage.jsx";
 import PublicLayout from "../layouts/PublicLayout.jsx";
-import { useRef } from "react";
 
-function PublicRoutes({ }) {
-    const howItWorksRef = useRef()
+function PublicRoutes() {
     return (
         <>
-            <Route element={<PublicLayout {...{howItWorksRef}} />} >
-                <Route path='/' element={<LandingPage {...{ howItWorksRef }} />} />
+            <Route element={<PublicLayout />}>
+                <Route path='/' element={<LandingPage />} />
                 <Route path='/about' element={<AboutPage />} />
                 <Route path='/faq' element={<FAQPage />} />
-                <Route path='/blog' element={<Blogs />} />
-                <Route path='/blog/:str' element={<BlogPage />} />
                 <Route path='/contact' element={<ContactPage />} />
-                <Route path='/signup' element={<SignUpPage />} />
-                <Route path='/login' element={<LoginPage />} />
-                <Route path='/reset-password' element={<ResetPasswordPage />} />
             </Route>
+            {/* Auth pages — no footer nav wrap needed */}
+            <Route path='/login' element={<LoginPage />} />
+            <Route path='/signup' element={<SignUpPage />} />
         </>
     )
 }

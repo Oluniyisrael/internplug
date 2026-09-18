@@ -1,94 +1,137 @@
-import { ArrowRight, Zap, Users, Wrench } from 'lucide-react'
+import { ArrowRight, Sparkles, TrendingUp, Users } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 export default function LandingHero({ howItWorksRef }) {
     return (
         <>
-            <div className="fixed inset-0 bg-[radial-gradient(150%_163%_at_50%_90.6%,#0a0712_25.6757%,#100b1d_38.2883%,#21104b_44.1441%,#243c91_50.7848%,#85dbf2_65.8643%)]">
+            {/* Fixed background gradient */}
+            <div className="fixed inset-0 bg-[#0b1f1c] pointer-events-none">
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#35d399] opacity-[0.06] rounded-full blur-[120px]" />
+                <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-[#f5c400] opacity-[0.04] rounded-full blur-[100px]" />
             </div>
-            <div className="relative min-h-screen w-full flex items-center justify-center ">
-                <div className="absolute inset-0">
-                    <div className="absolute top-1/4 -right-48 w-96 h-96 bg-[#0080ff] opacity-20 rounded-full blur-[120px] animate-pulse" />
-                    <div className="absolute bottom-1/3 -left-48 w-[32rem] h-[32rem] bg-[#243c91] opacity-15 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[28rem] h-[28rem] bg-[#85dbf2] opacity-10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }} />
-                </div>
 
-                <div className="relative z-10 w-full max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto py-20">
+            <div className="relative min-h-screen w-full flex items-center">
+                {/* Grid overlay */}
+                <div className="absolute inset-0 bg-grid-pattern pointer-events-none" />
+
+                <div className="relative z-10 w-full max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto pt-24 pb-20">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                        {/* Left: Text */}
                         <div className="space-y-8">
-                            <div data-aos="fade-up" className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#0080ff]/30 bg-[#0080ff]/10 backdrop-blur-sm w-fit shadow-lg shadow-[#0080ff]/20">
-                                <Wrench className="w-4 h-4 text-[#0080ff]" />
-                                <span className="text-sm font-medium text-[#0080ff]">Device Repair Made Easy</span>
+                            <div
+                                data-aos="fade-up"
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#35d399]/30 bg-[#35d399]/10 w-fit"
+                            >
+                                <Sparkles className="w-3.5 h-3.5 text-[#35d399]" />
+                                <span className="text-sm font-medium text-[#35d399]">AI-powered matching for Nigerian students</span>
                             </div>
 
-                            <div className="space-y-6">
-                                <h1 data-aos="fade-up" data-aos-delay="100" className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight">
-                                    Connect with <span className="bg-gradient-to-r from-[#0080ff] to-[#85dbf2] bg-clip-text text-transparent">Expert</span> Hardware Engineers
+                            <div data-aos="fade-up" data-aos-delay="100">
+                                <h1 className="text-5xl sm:text-6xl lg:text-[4.5rem] font-bold text-[#eef3ef] leading-[1.08] tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                                    Your internship
+                                    <span className="block text-[#35d399]">should find you.</span>
                                 </h1>
-                                <p data-aos="fade-up" data-aos-delay="200" className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-lg">
-                                    NIWTS connects you with skilled hardware engineers who can fix your laptop, phone, or any device. Get professional repairs from trusted technicians.
-                                </p>
                             </div>
 
-                            <div data-aos="fade-up" data-aos-delay="300" className="flex flex-col sm:flex-row gap-4 pt-4">
-                                <Link to={`/user/find-engineers`}>
-                                    <button className="group bg-gradient-to-r from-[#0080ff] to-[#0066cc] hover:from-[#0066cc] hover:to-[#0080ff] text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-lg shadow-[#0080ff]/30 hover:shadow-xl hover:shadow-[#0080ff]/40 hover:scale-105 flex items-center justify-center gap-2 cursor-pointer w-full">
-                                        Find an Engineer
+                            <p data-aos="fade-up" data-aos-delay="200" className="text-lg text-[#86ab9f] leading-relaxed max-w-md">
+                                InternPlug matches you with verified internships based on your course, skills, and interests — not just keyword searches.
+                            </p>
+
+                            <div data-aos="fade-up" data-aos-delay="300" className="flex flex-col sm:flex-row gap-4">
+                                <Link to="/signup">
+                                    <button className="group bg-[#f5c400] hover:bg-[#ffd633] text-[#0b1f1c] font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-[#f5c400]/20 hover:shadow-xl hover:shadow-[#f5c400]/30 hover:scale-105 flex items-center justify-center gap-2 cursor-pointer w-full sm:w-auto">
+                                        Find my internship
                                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                     </button>
                                 </Link>
-                                <button className="border-2 border-[#0080ff]/50 text-[#0080ff] hover:bg-[#0080ff]/10 font-semibold px-8 py-4 rounded-full transition-all duration-300 bg-transparent backdrop-blur-sm hover:border-[#0080ff] hover:scale-105 cursor-pointer" onClick={() => howItWorksRef.current.scrollIntoView({ behavior: "smooth", block: "start" })}>
-                                    How It Works
+                                <button
+                                    onClick={() => howItWorksRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                                    className="border border-[#1f5346] text-[#86ab9f] hover:text-[#eef3ef] hover:border-[#35d399] font-semibold px-8 py-4 rounded-xl transition-all duration-300 bg-transparent cursor-pointer"
+                                >
+                                    How it works
                                 </button>
                             </div>
 
-                            <div data-aos="fade-up" data-aos-delay="400" className="grid grid-cols-2 gap-8 pt-12 border-t border-white/10">
-                                <div className="space-y-2">
-                                    <p className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">5K+</p>
-                                    <p className="text-sm text-gray-400">Verified Engineers</p>
+                            {/* Stats */}
+                            <div data-aos="fade-up" data-aos-delay="400" className="grid grid-cols-3 gap-6 pt-8 border-t border-[#1f5346]">
+                                <div>
+                                    <p className="text-3xl font-bold text-[#eef3ef]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>500+</p>
+                                    <p className="text-xs text-[#86ab9f] mt-1">Verified listings</p>
                                 </div>
-                                <div className="space-y-2">
-                                    <p className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">15K+</p>
-                                    <p className="text-sm text-gray-400">Devices Repaired</p>
+                                <div>
+                                    <p className="text-3xl font-bold text-[#eef3ef]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>2,400+</p>
+                                    <p className="text-xs text-[#86ab9f] mt-1">Students placed</p>
+                                </div>
+                                <div>
+                                    <p className="text-3xl font-bold text-[#eef3ef]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>120+</p>
+                                    <p className="text-xs text-[#86ab9f] mt-1">Partner companies</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div data-aos="fade-left" data-aos-delay="200" className="hidden lg:flex items-center justify-center">
-                            <div className="relative w-full aspect-square max-w-lg">
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#0080ff]/5 to-transparent rounded-full blur-3xl" />
+                        {/* Right: Visual cards */}
+                        <div data-aos="fade-left" data-aos-delay="200" className="hidden lg:flex items-center justify-center relative h-[520px]">
 
-                                <div data-aos="zoom-in" data-aos-delay="300" className="absolute top-8 left-0 w-72 h-44 bg-gradient-to-br from-[#0080ff]/20 via-[#0080ff]/10 to-transparent border border-[#0080ff]/30 rounded-2xl p-6 shadow-2xl shadow-[#0080ff]/20 backdrop-blur-md hover:scale-105 transition-transform duration-300">
-                                    <div className="flex items-center gap-3 mb-4">
-                                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0080ff] to-[#0066cc] flex items-center justify-center shadow-lg shadow-[#0080ff]/30">
-                                            <Wrench className="w-6 h-6 text-white" />
-                                        </div>
-                                        <h3 className="text-white font-semibold text-lg">Fast Repairs</h3>
-                                    </div>
-                                    <p className="text-sm text-gray-300 leading-relaxed">
-                                        Get your devices fixed quickly by certified hardware experts
-                                    </p>
+                            {/* Match card */}
+                            <div className="absolute top-4 left-4 w-72 bg-[#143a33] border border-[#1f5346] rounded-2xl p-5 shadow-2xl animate-float hover:scale-105 transition-transform">
+                                <div className="flex items-center justify-between mb-3">
+                                    <span className="text-xs text-[#86ab9f] font-medium">Match found</span>
+                                    <span className="text-xs bg-[#35d399]/20 text-[#35d399] px-2 py-0.5 rounded-full font-bold">92% fit</span>
                                 </div>
-
-                                <div data-aos="zoom-in" data-aos-delay="400" className="absolute bottom-8 right-0 w-72 h-44 bg-gradient-to-br from-[#243c91]/20 via-[#1B2B4D]/10 to-transparent border border-white/20 rounded-2xl p-6 shadow-2xl backdrop-blur-md hover:scale-105 transition-transform duration-300">
-                                    <div className="flex items-center gap-3 mb-4">
-                                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#243c91] to-[#1B2B4D] flex items-center justify-center shadow-lg">
-                                            <Users className="w-6 h-6 text-gray-200" />
-                                        </div>
-                                        <h3 className="text-white font-semibold text-lg">Trusted Network</h3>
-                                    </div>
-                                    <p className="text-sm text-gray-300 leading-relaxed">
-                                        Connect with verified engineers in your area instantly
-                                    </p>
+                                <h4 className="text-[#eef3ef] font-bold text-sm mb-1" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Policy Research Intern</h4>
+                                <p className="text-[#86ab9f] text-xs mb-3">Civic Insight Africa · Abuja</p>
+                                <div className="flex gap-1 flex-wrap">
+                                    {['Research', 'Writing', 'Policy'].map(skill => (
+                                        <span key={skill} className="text-[10px] bg-[#0b1f1c] text-[#86ab9f] px-2 py-0.5 rounded-md">{skill}</span>
+                                    ))}
                                 </div>
+                            </div>
 
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-32 bg-gradient-to-b from-[#0080ff]/50 via-[#0080ff]/20 to-transparent" />
+                            {/* Profile progress */}
+                            <div className="absolute top-[30%] right-0 w-64 bg-[#143a33] border border-[#1f5346] rounded-2xl p-5 shadow-2xl animate-float-delayed hover:scale-105 transition-transform">
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="w-9 h-9 rounded-full bg-[#35d399]/20 border border-[#35d399]/30 flex items-center justify-center">
+                                        <Users className="w-4 h-4 text-[#35d399]" />
+                                    </div>
+                                    <div>
+                                        <p className="text-[#eef3ef] font-semibold text-xs" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Chidinma O.</p>
+                                        <p className="text-[#86ab9f] text-[10px]">Computer Science · 300L</p>
+                                    </div>
+                                </div>
+                                <div className="space-y-2">
+                                    <div className="flex justify-between text-[10px]">
+                                        <span className="text-[#86ab9f]">Profile strength</span>
+                                        <span className="text-[#35d399] font-bold">87%</span>
+                                    </div>
+                                    <div className="h-1.5 bg-[#0b1f1c] rounded-full overflow-hidden">
+                                        <div className="h-full bg-[#35d399] rounded-full w-[87%]"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Tracker */}
+                            <div className="absolute bottom-6 left-6 w-68 bg-[#143a33] border border-[#1f5346] rounded-2xl p-5 shadow-2xl hover:scale-105 transition-transform">
+                                <div className="flex items-center gap-2 mb-3">
+                                    <TrendingUp className="w-4 h-4 text-[#f5c400]" />
+                                    <span className="text-[#eef3ef] text-xs font-semibold" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Application tracker</span>
+                                </div>
+                                <div className="space-y-2">
+                                    {[
+                                        { company: 'Sterling Bank', status: 'Shortlisted', color: 'text-[#35d399] bg-[#35d399]/20' },
+                                        { company: 'Zenith Tech', status: 'Applied', color: 'text-[#f5c400] bg-[#f5c400]/20' },
+                                    ].map((item) => (
+                                        <div key={item.company} className="flex items-center justify-between">
+                                            <span className="text-[#86ab9f] text-[11px]">{item.company}</span>
+                                            <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${item.color}`}>{item.status}</span>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
-
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
             </div>
         </>
     )

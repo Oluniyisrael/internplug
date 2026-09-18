@@ -1,31 +1,23 @@
-import LandingHero from "./assets/LandingHero"
-import LandingAboutUs from "./assets/LandingAboutUs"
-import LandingHowWeWork from "./assets/LandingHowWeWork"
-import LandingTestimonials from "./assets/LandingTestimonials"
-import LandingBlogs from "./assets/LandingBlogs"
-import LandingFAQ from "./assets/LandingFAQ"
-import { useLocation } from "react-router-dom"
-import { useEffect } from "react"
+import { useRef } from 'react'
+import LandingHero from './assets/LandingHero'
+import LandingMarquee from './assets/LandingMarquee'
+import LandingHowItWorks from './assets/LandingHowItWorks'
+import LandingForWho from './assets/LandingForWho'
+import LandingTestimonials from './assets/LandingTestimonials'
+import LandingFAQ from './assets/LandingFAQ'
+import LandingCTA from './assets/LandingCTA'
 
-
-export default function LandingPage({ howItWorksRef }) {
-    const location = useLocation()
-    useEffect(() => {
-        console.log(location)
-        if (location.hash === '#howItWorks') {
-            howItWorksRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
-    }, [location])
+export default function LandingPage() {
+    const howItWorksRef = useRef()
     return (
-        <div className="w-full bg-[#0a0712] h-full overflow-hidden ">
-            {/* <NavBar/> */}
-            <LandingHero {...{ howItWorksRef }} />
-            <LandingAboutUs />
-            <LandingHowWeWork {...{ howItWorksRef }} />
+        <div className="w-full bg-[#0b1f1c] overflow-hidden">
+            <LandingHero howItWorksRef={howItWorksRef} />
+            <LandingMarquee />
+            <LandingHowItWorks howItWorksRef={howItWorksRef} />
+            <LandingForWho />
             <LandingTestimonials />
-            <LandingBlogs />
             <LandingFAQ />
-            {/* <Footer/> */}
+            <LandingCTA />
         </div>
     )
 }

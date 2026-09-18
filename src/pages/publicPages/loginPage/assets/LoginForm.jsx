@@ -1,39 +1,53 @@
-// LoginForm.jsx
+import { useState } from 'react'
+import { Eye, EyeOff, ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { toast } from 'sonner'
 
-export default function LoginForm({ loginData, setLoginData, submitingFormState, setSubmitingFormState }) {
+export default function LoginForm() {
+    const [show, setShow] = useState(false)
+    const [form, setForm] = useState({ email: '', password: '' })
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        toast.info('Backend not connected yet — this is a demo UI.')
+    }
+
     return (
-        <div className="min-h-screen flex items-center px-4 sm:px-0">
-            <div className="flex flex-1 items-center justify-center">
-                <div className="bg-white shadow-2xl rounded-3xl w-full max-w-md p-8">
-                    <h2 className="text-3xl font-bold mb-2 text-[#0a0712]">Welcome Back</h2>
-                    <p className="text-sm text-gray-600 mb-6">Sign in to your NIWTS account</p>
-
-                    <div className="flex flex-col gap-4">
-                        <input type="email" value={loginData.email} onChange={(e) => setLoginData((prev) => ({ ...prev, email: e.target.value }))} placeholder="Email Address" className="w-full border-2 border-gray-300 focus:border-[#0080ff] outline-none h-12 px-4 rounded-xl transition-colors" />
-
-                        <input type="password" value={loginData.password} onChange={(e) => setLoginData((prev) => ({ ...prev, password: e.target.value }))} placeholder="Password" className="w-full border-2 border-gray-300 focus:border-[#0080ff] outline-none h-12 px-4 rounded-xl transition-colors" onKeyDown={(e) => { if (e.key === "Enter") setSubmitingFormState((prev) => ({ ...prev, loggingIn: true })) }} />
-
-                        <div className="flex gap-2 sm:gap-0 flex-col sm:flex-row items-center sm:justify-between text-sm">
-                            <label className="flex items-center gap-2 cursor-pointer">
-                                <input type="checkbox" className="w-4 h-4 text-[#0080ff] rounded" />
-                                <span className="text-gray-600">Remember me</span>
-                            </label>
-                            <Link to="/reset-password" className="text-[#0080ff] hover:underline">
-                                Forgot Password?
-                            </Link>
-                        </div>
-
-                        <button onClick={() => setSubmitingFormState((prev) => ({ ...prev, loggingIn: true }))} disabled={submitingFormState.loggingIn} className="bg-gradient-to-r from-[#0080ff] to-[#0066cc] hover:from-[#0066cc] hover:to-[#0080ff] text-white h-12 rounded-xl font-semibold transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100">
-                            {submitingFormState.loggingIn ? 'Signing In...' : 'Sign In'}
-                        </button>
-
-                        <p className="text-center text-sm text-gray-600">
-                            Don't have an account? <Link to="/signup" className="text-[#0080ff] hover:underline font-semibold">Sign Up</Link>
-                        </p>
-                    </div>
+        <form onSubmit={handleSubmit} className="space-y-5">
+            <div>
+                <label className="block text-[#86ab9f] text-xs font-medium mb-2">Email address</label>
+                <input
+                    type="email"
+                    value={form.email}
+                    onChange={e => setForm({ ...form, email: e.target.value })}
+                    placeholder="you@email.com"
+                    className="w-full bg-[#0b1f1c] border border-[#1f5346] text-[#eef3ef] placeholder-[#3a5a52] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#35d399] transition-colors"
+                />
+            </div>
+            <div>
+                <label className="block text-[#86ab9f] text-xs font-medium mb-2">Password</label>
+                <div className="relative">
+                    <input
+                        type={show ? 'text' : 'password'}
+                        value={form.password}
+                        onChange={e => setForm({ ...form, password: e.target.value })}
+                        placeholder="••••••••"
+                        className="w-full bg-[#0b1f1c] border border-[#1f5346] text-[#eef3ef] placeholder-[#3a5a52] rounded-xl px-4 py-3 pr-12 text-sm focus:outline-none focus:border-[#35d399] transition-colors"
+                    />
+                    <button type="button" onClick={() => setShow(!show)} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#86ab9f] hover:text-[#eef3ef]">
+                        {show ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                    </button>
+                </div>
+                <div className="flex justify-end mt-2">
+                    <Link to="/reset-password" className="text-[#35d399] text-xs hover:underline">Forgot password?</Link>
                 </div>
             </div>
-        </div>
+            <button type="submit" className="w-full flex items-center justify-center gap-2 bg-[#f5c400] text-[#0b1f1c] font-bold py-4 rounded-xl hover:bg-[#ffd633] transition-all cursor-pointer">
+                Log in <ArrowRight className="w-4 h-4" />
+            </button>
+            <p className="text-center text-[#86ab9f] text-sm">
+                Don't have an account? <Link to="/signup" className="text-[#35d399] hover:underline font-medium">Sign up free</Link>
+            </p>
+        </form>
     )
 }

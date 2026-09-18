@@ -1,1 +1,77 @@
 @import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource/space-grotesk/400.css";
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/600.css";
+@import "@fontsource/space-grotesk/700.css";
+
+@theme {
+  --font-inter: "InterVariable", "Inter", sans-serif;
+  --font-grotesk: "Space Grotesk", sans-serif;
+  --color-ink: #0b1f1c;
+  --color-panel: #143a33;
+  --color-panel-2: #17453c;
+  --color-spark: #f5c400;
+  --color-plug: #35d399;
+  --color-plug-dim: #123a2c;
+  --color-paper: #eef3ef;
+  --color-muted: #86ab9f;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0b1f1c; }
+::-webkit-scrollbar-thumb { background: #1f5346; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #35d399; }
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+  will-change: transform;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-18px); }
+}
+.animate-float { animation: float 5s ease-in-out infinite; }
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float-delayed { animation: float-delayed 6s ease-in-out infinite 1s; }
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow { animation: spin-slow 10s linear infinite; }
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(53,211,153,0.2); }
+  50% { box-shadow: 0 0 40px rgba(53,211,153,0.5); }
+}
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Blob morphing */
+@keyframes morph {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+.animate-morph { animation: morph 8s ease-in-out infinite; }
+
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(rgba(53,211,153,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(53,211,153,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
