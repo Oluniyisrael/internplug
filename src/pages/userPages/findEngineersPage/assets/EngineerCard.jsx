@@ -14,9 +14,20 @@ export default function EngineerCard({ engineer, isSelected, onClick }) {
     >
       <div className="flex items-start gap-3">
         {/* Avatar */}
+        {engineer.photo ? (
+          <img
+            src={engineer.photo}
+            alt={engineer.name}
+            className="w-11 h-11 rounded-full object-cover flex-shrink-0 border border-white/10"
+            onError={(e) => {
+              e.target.style.display = 'none'
+              e.target.nextSibling.style.display = 'flex'
+            }}
+          />
+        ) : null}
         <div
-          className="w-11 h-11 rounded-full flex items-center justify-center text-sm font-bold text-white flex-shrink-0"
-          style={{ backgroundColor: engineer.avatarColor }}
+          className="w-11 h-11 rounded-full items-center justify-center text-sm font-bold text-white flex-shrink-0"
+          style={{ backgroundColor: engineer.avatarColor, display: engineer.photo ? 'none' : 'flex' }}
         >
           {engineer.avatar}
         </div>

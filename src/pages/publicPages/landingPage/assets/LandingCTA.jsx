@@ -53,19 +53,38 @@ export default function LandingCTA() {
                         </div>
                     </div>
 
-                    {/* Right side decoration */}
-                    <div className="hidden lg:flex justify-center items-center">
-                        <div className="relative">
-                            <div className="w-48 h-48 rounded-full bg-[#35d399]/10 border border-[#35d399]/20 flex items-center justify-center animate-morph">
-                                <div className="text-center">
-                                    <p className="text-6xl font-black text-[#35d399]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>92%</p>
-                                    <p className="text-[#86ab9f] text-xs mt-1">average match score</p>
-                                </div>
+                    {/* Right side: student images */}
+                    <div className="hidden lg:grid grid-cols-2 gap-3 h-[320px]">
+                        <div className="relative rounded-2xl overflow-hidden border border-[#1f5346]">
+                            <img
+                                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&auto=format&fit=crop&q=80"
+                                alt="Students collaborating"
+                                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#071714]/70 to-transparent" />
+                            <div className="absolute bottom-3 left-3 right-3">
+                                <p className="text-[#35d399] text-xs font-bold">92%</p>
+                                <p className="text-white/70 text-[10px]">average match score</p>
                             </div>
-                            <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full bg-[#f5c400]/10 border border-[#f5c400]/20 flex items-center justify-center animate-spin-slow">
-                                <div className="text-center">
-                                    <p className="text-lg font-black text-[#f5c400]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>500+</p>
-                                    <p className="text-[#86ab9f] text-[9px]">listings</p>
+                        </div>
+                        <div className="flex flex-col gap-3">
+                            <div className="relative rounded-2xl overflow-hidden border border-[#1f5346] flex-1">
+                                <img
+                                    src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=400&auto=format&fit=crop&q=80"
+                                    alt="Student on laptop"
+                                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#071714]/70 to-transparent" />
+                            </div>
+                            <div className="relative rounded-2xl overflow-hidden border border-[#1f5346] flex-1">
+                                <img
+                                    src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=400&auto=format&fit=crop&q=80"
+                                    alt="Student studying"
+                                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#071714]/70 to-transparent" />
+                                <div className="absolute bottom-2 left-3">
+                                    <span className="text-[9px] bg-[#f5c400]/90 text-[#0b1f1c] font-bold px-2 py-0.5 rounded-full">500+ listings</span>
                                 </div>
                             </div>
                         </div>

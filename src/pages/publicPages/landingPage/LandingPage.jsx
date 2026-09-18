@@ -10,7 +10,7 @@ import LandingCTA from './assets/LandingCTA'
 export default function LandingPage() {
     const howItWorksRef = useRef()
     return (
-        <div className="w-full bg-[#0b1f1c] overflow-hidden">
+        <div className="w-full bg-[#0b1f1c]">
             <LandingHero howItWorksRef={howItWorksRef} />
             <LandingMarquee />
             <LandingHowItWorks howItWorksRef={howItWorksRef} />

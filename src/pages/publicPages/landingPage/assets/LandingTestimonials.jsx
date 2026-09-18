@@ -8,6 +8,7 @@ const testimonials = [
         outcome: "Now at Stears Business",
         initials: "AO",
         color: "bg-[#35d399] text-[#0b1f1c]",
+        photo: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=80&h=80&auto=format&fit=crop&q=80",
     },
     {
         name: "Emeka Uche",
@@ -16,6 +17,7 @@ const testimonials = [
         outcome: "Interned at Flutterwave",
         initials: "EU",
         color: "bg-[#f5c400] text-[#0b1f1c]",
+        photo: "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=80&h=80&auto=format&fit=crop&q=80",
     },
     {
         name: "Fatima Al-Hassan",
@@ -24,6 +26,7 @@ const testimonials = [
         outcome: "Now at Okafor & Bello LLP",
         initials: "FA",
         color: "bg-[#35d399] text-[#0b1f1c]",
+        photo: "https://images.unsplash.com/photo-1589156280159-27698a70f29e?w=80&h=80&auto=format&fit=crop&q=80",
     },
     {
         name: "Tunde Bankole",
@@ -32,6 +35,7 @@ const testimonials = [
         outcome: "Interned at Ogilvy Nigeria",
         initials: "TB",
         color: "bg-[#f5c400] text-[#0b1f1c]",
+        photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&auto=format&fit=crop&q=80",
     },
 ];
 
@@ -60,7 +64,16 @@ export default function LandingTestimonials() {
                             <p className="text-[#eef3ef] text-sm leading-relaxed mb-6">"{t.text}"</p>
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-3">
-                                    <div className={`w-10 h-10 rounded-full ${t.color} font-bold text-sm flex items-center justify-center flex-shrink-0`} style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                                    <img
+                                        src={t.photo}
+                                        alt={t.name}
+                                        className="w-10 h-10 rounded-full object-cover flex-shrink-0 border-2 border-[#1f5346]"
+                                        onError={(e) => {
+                                            e.target.style.display = 'none'
+                                            e.target.nextSibling.style.display = 'flex'
+                                        }}
+                                    />
+                                    <div className={`w-10 h-10 rounded-full ${t.color} font-bold text-sm items-center justify-center flex-shrink-0 hidden`} style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                                         {t.initials}
                                     </div>
                                     <div>
