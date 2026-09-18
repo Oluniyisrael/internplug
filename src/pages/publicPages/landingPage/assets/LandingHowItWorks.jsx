@@ -368,7 +368,7 @@ export default function LandingHowItWorks({ howItWorksRef }) {
                     </div>
 
                     {/* scroll nudge — fades out once GSAP takes over */}
-                    <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+                    <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
                         <span className="text-xs text-[#86ab9f]">Scroll to explore</span>
                         <div className="h-8 w-px animate-pulse bg-gradient-to-b from-[#35d399]/60 to-transparent" />
                     </div>
