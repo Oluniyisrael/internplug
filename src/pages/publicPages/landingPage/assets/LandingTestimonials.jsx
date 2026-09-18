@@ -22,7 +22,7 @@ const testimonials = [
     {
         name: "Fatima Al-Hassan",
         role: "Law · ABU Zaria",
-        text: "I was worried there'd be no legal internships on a platform like this. There were five listings that matched my profile — including one at a top Lagos firm. I'm there now.",
+        text: "I was worried there'd be no legal internships on a platform like this. There were five listings that matched my profile, including one at a top Lagos firm. I'm there now.",
         outcome: "Now at Okafor & Bello LLP",
         initials: "FA",
         color: "bg-[#35d399] text-[#0b1f1c]",

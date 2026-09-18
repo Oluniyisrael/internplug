@@ -179,7 +179,7 @@ export default function UserPageLayout({ }) {
 
         {/* Main Content Area */}
         {location.pathname === "/user/find-engineers" ? (
-          // Full-bleed, no scroll, no padding — map page manages its own layout
+          // Full-bleed, no scroll, no padding, map page manages its own layout
           <main className="flex-1 overflow-hidden bg-[#0a0712]">
             <Outlet context={{ user }} />
           </main>

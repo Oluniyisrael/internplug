@@ -17,7 +17,7 @@ export default function AboutHero() {
                             Built from the frustration of searching blind
                         </h1>
                         <p data-aos="fade-up" data-aos-delay="200" className="text-[#86ab9f] text-lg leading-relaxed max-w-2xl">
-                            InternPlug started because too many Nigerian students were sending applications into the void — no response, no feedback, no transparency. We built the platform we wish had existed.
+                            InternPlug started because too many Nigerian students were sending applications into the void, no response, no feedback, no transparency. We built the platform we wish had existed.
                         </p>
                     </div>
 

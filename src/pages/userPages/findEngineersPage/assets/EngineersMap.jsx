@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Loader2 } from "lucide-react";
 
-// ─── Leaflet + ESRI Satellite — 100% free, no API key needed ─────────────────
+// ─── Leaflet + ESRI Satellite, 100% free, no API key needed ─────────────────
 
 let leafletLoaded = false;
 let leafletLoading = false;
@@ -97,7 +97,7 @@ export default function EngineersMap({ engineers, selectedId, onSelectEngineer, 
         attributionControl: true,
       });
 
-      // ESRI satellite tiles — free, no key
+      // ESRI satellite tiles, free, no key
       L.tileLayer(
         "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
         { attribution: "Tiles © Esri", maxZoom: 19 }

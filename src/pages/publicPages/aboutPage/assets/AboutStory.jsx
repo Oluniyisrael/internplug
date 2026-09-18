@@ -15,7 +15,7 @@ export default function AboutStory() {
                                 The root cause is a mismatch problem. Students don't know which roles fit their profile, and companies don't have a structured way to find students who fit their needs. InternPlug fixes both.
                             </p>
                             <p>
-                                We built an AI-powered matching layer that reads a student's course, skills, and interests, then ranks available internships by relevance. Students stop guessing. Companies get screened applicants. And we make the whole process — from application to placement — visible to both parties.
+                                We built an AI-powered matching layer that reads a student's course, skills, and interests, then ranks available internships by relevance. Students stop guessing. Companies get screened applicants. And we make the whole process, from application to placement, visible to both parties.
                             </p>
                         </div>
                     </div>

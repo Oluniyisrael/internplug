@@ -41,7 +41,7 @@ export default function Footer() {
                             <Logo />
                         </Link>
                         <p className="text-[#86ab9f] mb-6 max-w-sm text-sm leading-relaxed">
-                            InternPlug connects Nigerian students with verified internship opportunities that actually match — based on your course, skills, and goals.
+                            InternPlug connects Nigerian students with verified internship opportunities that actually match, based on your course, skills, and goals.
                         </p>
                         <div className="space-y-3">
                             <a href="mailto:hello@internplug.ng" className="flex items-center gap-3 text-[#86ab9f] hover:text-[#35d399] transition-colors text-sm">

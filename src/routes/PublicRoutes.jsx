@@ -16,7 +16,7 @@ function PublicRoutes() {
                 <Route path='/faq' element={<FAQPage />} />
                 <Route path='/contact' element={<ContactPage />} />
             </Route>
-            {/* Auth pages — no footer nav wrap needed */}
+            {/* Auth pages, no footer nav wrap needed */}
             <Route path='/login' element={<LoginPage />} />
             <Route path='/signup' element={<SignUpPage />} />
         </>

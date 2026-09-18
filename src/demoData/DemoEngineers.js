@@ -102,7 +102,7 @@ export const DEMO_ENGINEERS = [
   },
 ];
 
-// Your user's current location — swap this with browser geolocation
+// Your user's current location, swap this with browser geolocation
 // navigator.geolocation.getCurrentPosition(pos => { lat: pos.coords.latitude, lng: pos.coords.longitude })
 export const USER_LOCATION = {
   lat: 6.5244,

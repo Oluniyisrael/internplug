@@ -73,7 +73,7 @@ export default function EngineerCard({ engineer, isSelected, onClick }) {
         </div>
       </div>
 
-      {/* Skills tags — only show when selected */}
+      {/* Skills tags, only show when selected */}
       {isSelected && (
         <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-white/10">
           {engineer.skills.map((skill) => (

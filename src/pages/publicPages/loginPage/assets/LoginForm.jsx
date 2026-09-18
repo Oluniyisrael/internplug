@@ -9,7 +9,7 @@ export default function LoginForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        toast.info('Backend not connected yet — this is a demo UI.')
+        toast.info('Backend not connected yet, this is a demo UI.')
     }
 
     return (

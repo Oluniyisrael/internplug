@@ -13,12 +13,12 @@ export default function SignUpForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        toast.info('Backend not connected yet — this is a demo UI.')
+        toast.info('Backend not connected yet, this is a demo UI.')
     }
 
     return (
         <div className="space-y-5">
-            {/* Role selector — proper Lucide icons, no emojis */}
+            {/* Role selector, proper Lucide icons, no emojis */}
             <div className="grid grid-cols-2 gap-3">
                 {[
                     { value: 'student', label: "I'm a student", Icon: GraduationCap },

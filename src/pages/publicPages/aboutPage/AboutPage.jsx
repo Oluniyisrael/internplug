@@ -16,7 +16,7 @@ export default function AboutPage() {
             <section className="py-20 px-4 md:px-12 lg:px-20 bg-[#0b1f1c] text-center">
                 <div data-aos="zoom-in" className="max-w-2xl mx-auto">
                     <h2 className="text-4xl font-bold text-[#eef3ef] mb-4" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Join the platform</h2>
-                    <p className="text-[#86ab9f] mb-8">Whether you're a student looking for your first break or a company that wants better interns — InternPlug is ready.</p>
+                    <p className="text-[#86ab9f] mb-8">Whether you're a student looking for your first break or a company that wants better interns, InternPlug is ready.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link to="/signup">
                             <button className="group flex items-center gap-2 bg-[#f5c400] text-[#0b1f1c] font-bold px-8 py-4 rounded-xl hover:bg-[#ffd633] transition-all cursor-pointer">

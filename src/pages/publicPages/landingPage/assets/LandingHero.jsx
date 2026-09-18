@@ -44,7 +44,7 @@ export default function LandingHero({ howItWorksRef }) {
 
                             <p data-aos="fade-up" data-aos-delay="200" className="text-lg text-[#86ab9f] leading-relaxed max-w-md">
                                 InternPlug matches Nigerian students with verified internships based on
-                                their course, skills, and goals — not just keyword searches.
+                                their course, skills, and goals, not just keyword searches.
                             </p>
 
                             <div data-aos="fade-up" data-aos-delay="300" className="flex flex-col sm:flex-row gap-4">
@@ -111,7 +111,7 @@ export default function LandingHero({ howItWorksRef }) {
                                 </div>
                             </div>
 
-                            {/* Floating match card — top left */}
+                            {/* Floating match card, top left */}
                             <div className="absolute top-10 left-0 w-[225px] bg-[#143a33]/95 backdrop-blur-xl border border-[#1f5346] rounded-2xl p-4 shadow-2xl animate-float hover:scale-105 transition-transform">
                                 <div className="flex items-center gap-3 mb-3">
                                     <div className="w-10 h-10 rounded-full bg-[#35d399]/15 border border-[#35d399]/20 flex items-center justify-center">
@@ -128,7 +128,7 @@ export default function LandingHero({ howItWorksRef }) {
                                 </div>
                             </div>
 
-                            {/* Location card — mid right */}
+                            {/* Location card, mid right */}
                             <div className="absolute top-[170px] right-[-15px] w-[150px] bg-[#143a33]/95 backdrop-blur-xl border border-[#1f5346] rounded-2xl p-4 shadow-2xl animate-float-delayed">
                                 <div className="flex items-center gap-2 mb-2">
                                     <MapPin className="w-4 h-4 text-[#f5c400]" />
@@ -139,7 +139,7 @@ export default function LandingHero({ howItWorksRef }) {
                                 </p>
                             </div>
 
-                            {/* Application tracker card — bottom right */}
+                            {/* Application tracker card, bottom right */}
                             <div className="absolute bottom-8 right-[-10px] w-[220px] bg-[#143a33]/95 backdrop-blur-xl border border-[#1f5346] rounded-2xl p-4 shadow-2xl animate-float-delayed">
                                 <div className="flex items-center gap-2 mb-3">
                                     {/* FIX 1: was missing closing " on className */}
@@ -163,7 +163,7 @@ export default function LandingHero({ howItWorksRef }) {
                                 ))}
                             </div>
 
-                            {/* Verified badge — bottom left */}
+                            {/* Verified badge, bottom left */}
                             <div className="absolute bottom-[180px] left-[-15px] flex items-center gap-2 px-3 py-2 rounded-full bg-[#143a33]/95 backdrop-blur-xl border border-[#35d399]/20 shadow-xl animate-float">
                                 {/* FIX 2: was self-closing with /> before closing the className string */}
                                 <div className="w-2 h-2 rounded-full bg-[#35d399] shadow-[0_0_10px_#35d399]" />

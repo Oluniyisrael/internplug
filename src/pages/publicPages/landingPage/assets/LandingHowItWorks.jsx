@@ -9,7 +9,7 @@ const steps = [
         number: '01',
         title: 'Build your profile',
         description:
-            'Add your school, course, skills, interests, and upload your CV. Your profile is what InternPlug uses to find the right fit — not just keywords.',
+            'Add your school, course, skills, interests, and upload your CV. Your profile is what InternPlug uses to find the right fit, not just keywords.',
         accent: 'green',
     },
     {
@@ -17,7 +17,7 @@ const steps = [
         number: '02',
         title: 'Get matched',
         description:
-            'Our matching engine evaluates your profile against every verified listing and ranks opportunities by how well they fit — automatically.',
+            'Our matching engine evaluates your profile against every verified listing and ranks opportunities by how well they fit, automatically.',
         accent: 'yellow',
     },
     {
@@ -33,12 +33,12 @@ const steps = [
         number: '04',
         title: 'Track everything',
         description:
-            'Follow every application from the moment you apply — through shortlisted, interview, accepted, or closed — all in one place.',
+            'Follow every application from the moment you apply, through shortlisted, interview, accepted, or closed, all in one place.',
         accent: 'yellow',
     },
 ]
 
-/* ─── SVG path — dots evenly spread at ~60, 400, 800, 1140 ───
+/* ─── SVG path, dots evenly spread at ~60, 400, 800, 1140 ───
  *  Steps 2 & 3 are now ~400px apart instead of 190px.
  *  All cards sit above their dot, horizontally centred.
  * ─────────────────────────────────────────────────────────── */
@@ -297,7 +297,7 @@ export default function LandingHowItWorks({ howItWorksRef }) {
                                 strokeLinecap="round"
                             />
 
-                            {/* animated fill — GSAP drives strokeDashoffset */}
+                            {/* animated fill, GSAP drives strokeDashoffset */}
                             <path
                                 ref={pathRef}
                                 d={CURVE_PATH}
@@ -307,7 +307,7 @@ export default function LandingHowItWorks({ howItWorksRef }) {
                                 style={{ filter: 'drop-shadow(0 0 6px rgba(53,211,153,0.5))' }}
                             />
 
-                            {/* dots — GSAP drives scale + opacity */}
+                            {/* dots, GSAP drives scale + opacity */}
                             {DOT_POSITIONS.map((dot, i) => (
                                 <circle
                                     key={i}
@@ -323,7 +323,7 @@ export default function LandingHowItWorks({ howItWorksRef }) {
                             ))}
                         </svg>
 
-                        {/* HTML step cards — positioned to match their dot in screen space */}
+                        {/* HTML step cards, positioned to match their dot in screen space */}
                         {cardPositions.length === steps.length &&
                             steps.map((step, i) => {
                                 const Icon    = step.icon
@@ -367,7 +367,7 @@ export default function LandingHowItWorks({ howItWorksRef }) {
                             })}
                     </div>
 
-                    {/* scroll nudge — fades out once GSAP takes over */}
+                    {/* scroll nudge, fades out once GSAP takes over */}
                     <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
                         <span className="text-xs text-[#86ab9f]">Scroll to explore</span>
                         <div className="h-8 w-px animate-pulse bg-gradient-to-b from-[#35d399]/60 to-transparent" />

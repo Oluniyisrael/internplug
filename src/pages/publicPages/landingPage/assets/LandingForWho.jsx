@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const studentBenefits = [
     "Profile built around your course and skills",
-    "AI-matched internships — not random listings",
+    "AI-matched internships, not random listings",
     "One-click apply with your saved CV",
     "Real-time application tracker",
     "CV builder and interview prep tools",

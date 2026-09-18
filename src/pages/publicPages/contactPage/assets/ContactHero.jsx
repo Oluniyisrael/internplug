@@ -8,7 +8,7 @@ export default function ContactHero() {
                     Talk to us
                 </h1>
                 <p data-aos="fade-up" data-aos-delay="200" className="text-[#86ab9f] text-lg">
-                    Whether you're a student with a question, a company that wants to partner, or a developer who wants to contribute — we're listening.
+                    Whether you're a student with a question, a company that wants to partner, or a developer who wants to contribute, we're listening.
                 </p>
             </div>
         </section>

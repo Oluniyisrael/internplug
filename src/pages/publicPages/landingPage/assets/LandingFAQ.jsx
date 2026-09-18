@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom'
 const faqs = [
     {
         question: "Is InternPlug free for students?",
-        answer: "Yes — InternPlug is completely free for students. Creating a profile, getting matched, saving listings, and applying all cost nothing. Premium tools like advanced CV review and mock interview sessions will be offered later, but the core platform stays free."
+        answer: "Yes, InternPlug is completely free for students. Creating a profile, getting matched, saving listings, and applying all cost nothing. Premium tools like advanced CV review and mock interview sessions will be offered later, but the core platform stays free."
     },
     {
         question: "How does the matching system work?",
-        answer: "When you complete your profile — including your course, level, skills, and interests — InternPlug evaluates your profile against every active listing and generates a fit score. The score reflects how closely the role's requirements align with what you bring. You still see all listings, but your matches are ranked by relevance."
+        answer: "When you complete your profile, including your course, level, skills, and interests, InternPlug evaluates your profile against every active listing and generates a fit score. The score reflects how closely the role's requirements align with what you bring. You still see all listings, but your matches are ranked by relevance."
     },
     {
         question: "Are the internships verified?",
@@ -17,7 +17,7 @@ const faqs = [
     },
     {
         question: "Can I apply for internships outside my state?",
-        answer: "Absolutely. Many listings on InternPlug are remote or open to applicants from across Nigeria. You can filter by location — Lagos, Abuja, Port Harcourt, remote — or leave it open to see everything."
+        answer: "Absolutely. Many listings on InternPlug are remote or open to applicants from across Nigeria. You can filter by location, Lagos, Abuja, Port Harcourt, remote, or leave it open to see everything."
     },
     {
         question: "I'm a final-year student or recent graduate. Is InternPlug for me?",
@@ -25,7 +25,7 @@ const faqs = [
     },
     {
         question: "What if I don't have a CV yet?",
-        answer: "You can still apply. InternPlug has a built-in CV builder that walks you through the sections a recruiter expects to see — education, skills, projects, and experience. Complete it on the platform and it's ready to attach to any application."
+        answer: "You can still apply. InternPlug has a built-in CV builder that walks you through the sections a recruiter expects to see, education, skills, projects, and experience. Complete it on the platform and it's ready to attach to any application."
     },
 ];
 
