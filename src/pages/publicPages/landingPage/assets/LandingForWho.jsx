@@ -1,14 +1,14 @@
-import { GraduationCap, Building2, ArrowRight } from 'lucide-react'
+import { GraduationCap, Building2, ArrowRight, CheckCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const studentBenefits = [
-    "Profile built around your course & skills",
+    "Profile built around your course and skills",
     "AI-matched internships — not random listings",
-    "One-click apply with saved CV",
+    "One-click apply with your saved CV",
     "Real-time application tracker",
     "CV builder and interview prep tools",
     "Verified companies only",
-];
+]
 
 const employerBenefits = [
     "Post listings and reach 10,000+ students",
@@ -17,7 +17,7 @@ const employerBenefits = [
     "Direct messaging with candidates",
     "Internship verification certificates",
     "Dashboard analytics",
-];
+]
 
 export default function LandingForWho() {
     return (
@@ -31,7 +31,7 @@ export default function LandingForWho() {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {/* Students card */}
+                    {/* Students */}
                     <div data-aos="fade-right" className="relative bg-[#143a33] border border-[#1f5346] rounded-3xl p-8 overflow-hidden group hover:border-[#35d399]/40 transition-all duration-300">
                         <div className="absolute top-0 right-0 w-48 h-48 bg-[#35d399] opacity-[0.06] rounded-full blur-3xl" />
                         <div className="relative z-10">
@@ -41,17 +41,15 @@ export default function LandingForWho() {
                             <h3 className="text-2xl font-bold text-[#eef3ef] mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Students</h3>
                             <p className="text-[#86ab9f] text-sm mb-6">You're not just looking for any internship. You want one that counts.</p>
                             <ul className="space-y-3 mb-8">
-                                {studentBenefits.map((benefit, i) => (
+                                {studentBenefits.map((b, i) => (
                                     <li key={i} className="flex items-center gap-3 text-sm text-[#eef3ef]">
-                                        <div className="w-5 h-5 rounded-full bg-[#35d399]/20 border border-[#35d399]/30 flex items-center justify-center flex-shrink-0">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-[#35d399]" />
-                                        </div>
-                                        {benefit}
+                                        <CheckCircle className="w-4 h-4 text-[#35d399] flex-shrink-0" />
+                                        {b}
                                     </li>
                                 ))}
                             </ul>
                             <Link to="/signup">
-                                <button className="group flex items-center gap-2 bg-[#35d399] text-[#0b1f1c] font-bold px-6 py-3 rounded-xl hover:bg-[#2bc98a] transition-all">
+                                <button className="group flex items-center gap-2 bg-[#35d399] text-[#0b1f1c] font-bold px-6 py-3 rounded-xl hover:bg-[#2bc98a] transition-all cursor-pointer">
                                     Start as a student
                                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                 </button>
@@ -59,7 +57,7 @@ export default function LandingForWho() {
                         </div>
                     </div>
 
-                    {/* Employers card */}
+                    {/* Employers */}
                     <div data-aos="fade-left" className="relative bg-[#143a33] border border-[#1f5346] rounded-3xl p-8 overflow-hidden group hover:border-[#f5c400]/40 transition-all duration-300">
                         <div className="absolute top-0 right-0 w-48 h-48 bg-[#f5c400] opacity-[0.05] rounded-full blur-3xl" />
                         <div className="relative z-10">
@@ -69,17 +67,16 @@ export default function LandingForWho() {
                             <h3 className="text-2xl font-bold text-[#eef3ef] mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Employers</h3>
                             <p className="text-[#86ab9f] text-sm mb-6">Post once. Get matched with the students who actually fit your role.</p>
                             <ul className="space-y-3 mb-8">
-                                {employerBenefits.map((benefit, i) => (
+                                {employerBenefits.map((b, i) => (
                                     <li key={i} className="flex items-center gap-3 text-sm text-[#eef3ef]">
-                                        <div className="w-5 h-5 rounded-full bg-[#f5c400]/20 border border-[#f5c400]/30 flex items-center justify-center flex-shrink-0">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-[#f5c400]" />
-                                        </div>
-                                        {benefit}
+                                        <CheckCircle className="w-4 h-4 text-[#f5c400] flex-shrink-0" />
+                                        {b}
                                     </li>
                                 ))}
                             </ul>
-                            <Link to="/signup">
-                                <button className="group flex items-center gap-2 bg-[#f5c400] text-[#0b1f1c] font-bold px-6 py-3 rounded-xl hover:bg-[#ffd633] transition-all">
+                            {/* ✅ Routes to employer signup */}
+                            <Link to="/signup?role=employer">
+                                <button className="group flex items-center gap-2 bg-[#f5c400] text-[#0b1f1c] font-bold px-6 py-3 rounded-xl hover:bg-[#ffd633] transition-all cursor-pointer">
                                     Post an internship
                                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                 </button>
@@ -89,5 +86,5 @@ export default function LandingForWho() {
                 </div>
             </div>
         </section>
-    );
+    )
 }
