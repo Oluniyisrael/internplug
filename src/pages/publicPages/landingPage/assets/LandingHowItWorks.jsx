@@ -38,19 +38,22 @@ const steps = [
     },
 ]
 
-/* ─── SVG path drawn left→right across a 1200×320 viewBox ─── */
+/* ─── SVG path — dots evenly spread at ~60, 400, 800, 1140 ───
+ *  Steps 2 & 3 are now ~400px apart instead of 190px.
+ *  All cards sit above their dot, horizontally centred.
+ * ─────────────────────────────────────────────────────────── */
 const CURVE_PATH =
-    'M60 260 C 130 300, 210 280, 280 200 S 390 100, 530 120 S 650 170, 720 100 S 840 20, 960 50 S 1070 120, 1140 80'
+    'M60 300 C 120 340, 200 310, 280 240 S 360 150, 400 160 S 520 190, 600 160 S 700 110, 800 120 S 900 150, 960 120 S 1060 60, 1140 80'
 
 const DOT_POSITIONS = [
-    { x: 60,   y: 260 },
-    { x: 530,  y: 120 },
-    { x: 720,  y: 100 },
+    { x: 60,   y: 300 },
+    { x: 400,  y: 160 },
+    { x: 800,  y: 120 },
     { x: 1140, y: 80  },
 ]
 
-/* cards above/below alternates — true = below the dot */
-const CARD_BELOW = [true, false, true, false]
+/* all cards above their dot */
+const CARD_BELOW = [false, false, false, false]
 
 const MD_BREAKPOINT = 768
 
@@ -94,7 +97,7 @@ export default function LandingHowItWorks({ howItWorksRef }) {
                 const screen = pt.matrixTransform(ctm)
                 return {
                     left: `${screen.x - containerRect.left}px`,
-                    top:  `${screen.y - containerRect.top}px`,
+                    top:  `${screen.y - containerRect.top -200}px`,
                 }
             })
 
@@ -259,7 +262,7 @@ export default function LandingHowItWorks({ howItWorksRef }) {
                 <div className="relative z-10 flex min-h-screen flex-col justify-center px-4 py-24 md:px-12 lg:px-20">
 
                     {/* header */}
-                    <div className="mb-6 text-center">
+                    <div className="mb-12 text-center">
                         <p className="mb-2 text-sm font-semibold tracking-wide text-[#35d399]">
                             How InternPlug works
                         </p>
@@ -325,7 +328,6 @@ export default function LandingHowItWorks({ howItWorksRef }) {
                             steps.map((step, i) => {
                                 const Icon    = step.icon
                                 const isGreen = step.accent === 'green'
-                                const below   = CARD_BELOW[i]
 
                                 return (
                                     <div
@@ -334,9 +336,8 @@ export default function LandingHowItWorks({ howItWorksRef }) {
                                         style={{
                                             left:      cardPositions[i].left,
                                             top:       cardPositions[i].top,
-                                            transform: below
-                                                ? 'translate(-20px, 16px)'
-                                                : 'translate(-20px, calc(-100% - 16px))',
+                                            /* center the card over its dot, always above */
+                                            transform: 'translate(-50%, calc(-100% - 22px))',
                                         }}
                                     >
                                         <div className="rounded-2xl border border-[#1f5346] bg-[#143a33] p-5 shadow-2xl transition-colors hover:border-[#35d399]/40">
@@ -367,7 +368,7 @@ export default function LandingHowItWorks({ howItWorksRef }) {
                     </div>
 
                     {/* scroll nudge — fades out once GSAP takes over */}
-                    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+                    <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
                         <span className="text-xs text-[#86ab9f]">Scroll to explore</span>
                         <div className="h-8 w-px animate-pulse bg-gradient-to-b from-[#35d399]/60 to-transparent" />
                     </div>
